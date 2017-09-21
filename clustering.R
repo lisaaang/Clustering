@@ -50,10 +50,13 @@ wssplot(wineDF)
 #          "slows" the reduction in sum of squares. ie does not improve the clustering as much.
 #          
 #   * Look at the code for wssplot() and figure out how it works
+#     Ans: wssplot starts with 15 clusters and specific seed(1234). 
+#          Using a for loop, it runs a k-means clustering for 2-15 clusters, storing the sum of 
+#          within-groups sum of squares in wss[i] for each iteration.
+#          This is then plotted out.
 
 # Method 2: Use the NbClust library, which runs many experiments
 # and gives a distribution of potential number of clusters.
-
 
 set.seed(1234)
 nc <- NbClust(wineDF, min.nc=2, max.nc=15, method="kmeans")
